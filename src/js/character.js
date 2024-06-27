@@ -5,11 +5,18 @@ export default class Character {
     } else {
       this.name = name;
     }
-    this.type = type;
+
+    const types = ['Bowman', 'Daemon', 'Magician', 'Swordsman', 'Undead', 'Zombie'];
+    if (!types.includes(type)) {
+      throw new Error('Unknown species');
+    } else {
+      this.type = type;
+    }
+
     this.health = 100;
     this.level = 1;
-    this.attack = 0;
-    this.defence = 0;
+    this.attack = null;
+    this.defence = null;
   }
 
   levelUp() {
